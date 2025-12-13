@@ -9,3 +9,8 @@
 .login-card {
   width: 380px;
 }
+
+.error {
+  margin: 0;
+  color: red;
+}

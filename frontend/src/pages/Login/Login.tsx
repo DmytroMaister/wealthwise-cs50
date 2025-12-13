@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { useState, type FC } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -9,17 +9,36 @@ import {
   Typography,
   Link,
 } from '@mui/material';
+import { login } from '../../api/authApi';
 import { links } from '../../utils/links';
 
 import './Login.css';
+import type { User } from '../../types/commonTypes';
 
-export const Login = () => {
+export const Login: FC<{ onLoggedIn: (user: User) => void }> = ({
+  onLoggedIn,
+}) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Login attempt:', { username, password });
+    setError('');
+    setLoading(true);
+
+    try {
+      const user = await login(username, password);
+      onLoggedIn(user);
+      navigate('/', { replace: true });
+    } catch (err: any) {
+      console.error(err);
+      setError(err?.response?.data?.error ?? 'Something went wrong');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,10 +49,13 @@ export const Login = () => {
             Login
           </Typography>
 
+          {error && <p className="error">{error}</p>}
+
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
             <TextField
               fullWidth
               label="Username"
+              autoComplete="off"
               margin="normal"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -41,6 +63,7 @@ export const Login = () => {
 
             <TextField
               fullWidth
+              autoComplete="off"
               label="Password"
               type="password"
               margin="normal"
@@ -48,7 +71,13 @@ export const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              sx={{ mt: 2 }}
+              disabled={loading}
+            >
               Login
             </Button>
 
