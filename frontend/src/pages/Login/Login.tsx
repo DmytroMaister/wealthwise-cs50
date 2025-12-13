@@ -12,8 +12,8 @@ import {
 import { login } from '../../api/authApi';
 import { links } from '../../utils/links';
 
-import './Login.css';
 import type { User } from '../../types/commonTypes';
+import './Login.css';
 
 export const Login: FC<{ onLoggedIn: (user: User) => void }> = ({
   onLoggedIn,
@@ -32,7 +32,7 @@ export const Login: FC<{ onLoggedIn: (user: User) => void }> = ({
     try {
       const user = await login(username, password);
       onLoggedIn(user);
-      navigate('/', { replace: true });
+      navigate(links.home, { replace: true });
     } catch (err: any) {
       console.error(err);
       setError(err?.response?.data?.error ?? 'Something went wrong');

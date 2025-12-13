@@ -33,7 +33,7 @@ export const Register: FC<{ onLoggedIn: (user: User) => void }> = ({
     try {
       const user = await register(username, password, confirm);
       onLoggedIn(user);
-      navigate('/', { replace: true });
+      navigate(links.home, { replace: true });
     } catch (err: any) {
       console.error(err);
       setError(err?.response?.data?.error ?? 'Something went wrong');

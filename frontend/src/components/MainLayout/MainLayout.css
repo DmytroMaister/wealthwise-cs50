@@ -1,0 +1,25 @@
+.menu-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.nav-menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.button-link {
+  padding: 8px;
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+.button-link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  text-decoration: underline;
+}

@@ -6,3 +6,8 @@ export type MainLayoutProps = {
   onLogout: () => void;
   children: ReactNode;
 };
+
+export interface MenuButton {
+  label: string;
+  path: string;
+}
