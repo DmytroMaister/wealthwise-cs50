@@ -21,6 +21,10 @@ export const register = (
   return post('/register', form);
 };
 
+export const logout = () => {
+  return post('/logout');
+};
+
 export const fetchUser = () => {
   return get('/me');
 };

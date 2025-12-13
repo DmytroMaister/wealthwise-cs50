@@ -4,6 +4,7 @@ import { Login } from '../pages/Login/Login';
 import { Register } from '../pages/Register/Register';
 import { Home } from '../pages/Home/Home';
 import { fetchUser } from '../api/authApi';
+import { MainLayout } from '../components/MainLayout/MainLayout';
 import type { User } from '../types/commonTypes';
 
 export const App = () => {
@@ -31,7 +32,15 @@ export const App = () => {
 
       <Route
         path="/"
-        element={user ? <Home user={user} /> : <Navigate to="/login" replace />}
+        element={
+          user ? (
+            <MainLayout user={user} onLogout={() => setUser(null)}>
+              <Home user={user} />
+            </MainLayout>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
       />
 
       <Route
