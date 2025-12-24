@@ -1,0 +1,55 @@
+.expenses-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.expenses-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expenses-total {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.expenses-page-error {
+  color: #d32f2f;
+}
+
+.expenses-table {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.expense-edit-btn {
+  color: #1b76d3 !important;
+}
+
+.expense-delete-btn {
+  color: #d32f2f !important;
+}
+
+.expense-error {
+  margin-bottom: 8px;
+  color: #d32f2f;
+  font-size: 0.9rem;
+}
+
+.expenses-dialog-content {
+  padding-top: 8px !important;
+}
+
+.expenses-dialog-actions {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  padding-bottom: 16px !important;
+}

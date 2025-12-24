@@ -1,0 +1,75 @@
+.main-layout {
+  min-height: 100vh;
+}
+
+/* AppBar */
+.main-appbar {
+  background: #1976d2;
+  box-shadow: none;
+}
+
+/* Toolbar height + layout */
+.main-toolbar {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo */
+.main-logo {
+  color: #fff;
+  margin-right: 12px;
+  font-weight: 700;
+}
+
+/* Wrapper for menus */
+.menu-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Left and right groups */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Right side */
+.nav-menu-right {
+  justify-content: flex-end;
+}
+
+/* Links */
+.button-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  opacity: 0.9;
+}
+
+.button-link:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.button-link.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Logout button */
+.nav-logout {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Page content */
+.main-content {
+  padding: 16px;
+}

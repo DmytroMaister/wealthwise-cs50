@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Flask / sessions
+flask_session/
+
+# Database
+*.db
+
+# Node / frontend
+node_modules/
+dist/
+
+# OS / editors
+.DS_Store
+.vscode/

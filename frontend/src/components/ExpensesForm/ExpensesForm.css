@@ -1,0 +1,10 @@
+.expenses-form-wrapper {
+  padding: 0 15px;
+}
+
+.expenses-form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  padding: 15px 0;
+}
